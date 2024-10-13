@@ -1,6 +1,6 @@
 <?php
 // conexion.php
-$servername = "localhost";
+$servername = "tiendaenlinea-server";
 $username = "root";
 $password = "";
 $dbname = "tienda_online";
