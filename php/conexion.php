@@ -1,8 +1,8 @@
 <?php
 // conexion.php
-$servername = "tiendaenlinea-server";
-$username = "root";
-$password = "";
+$servername = "tiendaenlinea-server.mysql.database.azure.com";
+$username = "ushfdkwvxu";
+$password = "Tindaenlinea2024";
 $dbname = "tienda_online";
 
 // Crear conexión
