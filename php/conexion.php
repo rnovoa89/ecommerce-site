@@ -4,7 +4,7 @@ $servername = "tiendaenlinea-server.mysql.database.azure.com";
 $username = "ushfdkwvxu";
 $password = "Tindaenlinea2024";
 $dbname = "tienda_online";
-$ssl_cert_path = "../SSL/DigiCertGlobalRootCA.crt.pem";  // Reemplaza con la ruta correcta
+$ssl_cert_path = __DIR__ . "/SSL/DigiCertGlobalRootCA.crt.pem";  // Ruta completa al certificado
 
 // Crear la conexión
 $conn = mysqli_init();
