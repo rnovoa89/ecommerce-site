@@ -11,7 +11,7 @@ $dbname = "tienda_online";
 //Eliminar esto despues de haberlo pasado a Rene para lo de Azure y dejar solamente la cadena para la DB local
 
 $con = mysqli_init();
-mysqli_ssl_set($con,NULL,NULL, "./SSL/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_ssl_set($con,NULL,NULL, "SSL/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 mysqli_real_connect($conn, "tiendaenlinea-server.mysql.database.azure.com", "ushfdkwvxu", "Tiendaenlinea2024", "tienda_online", 3306, MYSQLI_CLIENT_SSL);
 
 //$conn = mysqli_init();
