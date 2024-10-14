@@ -4,25 +4,23 @@ $servername = "tiendaenlinea-server.mysql.database.azure.com";
 $username = "ushfdkwvxu";
 $password = "Tindaenlinea2024";
 $dbname = "tienda_online";
+$ssl_cert_path = "ruta/a/tu/certificado/SSL/DigiCertGlobalRootCA.crt.pem";  // Reemplaza con la ruta correcta
 
-// Crear conexión
-//$conn = new mysqli($servername, $username, $password, $dbname);
+// Crear la conexión
+$conn = mysqli_init();
 
-//Eliminar esto despues de haberlo pasado a Rene para lo de Azure y dejar solamente la cadena para la DB local
+// Establecer las opciones SSL para la conexión
+mysqli_ssl_set($conn, NULL, NULL, $ssl_cert_path, NULL, NULL);
 
-$con = mysqli_init();
-mysqli_ssl_set($con,NULL,NULL, "SSL/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-mysqli_real_connect($conn, "tiendaenlinea-server.mysql.database.azure.com", "ushfdkwvxu", "Tiendaenlinea2024", "tienda_online", 3306, MYSQLI_CLIENT_SSL);
-
-//$conn = mysqli_init();
-//mysqli_ssl_set($conn,NULL,NULL, "SSl/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
-//mysqli_real_connect($conn, $servername, $username, $password, $dbname, 3306, MYSQLI_CLIENT_SSL);
-//if (mysqli_connect_errno()) {
-    //die('Conexión fallida: Con MySQL de Azure: '.mysqli_connect_error());
-//}
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'error' => "Conexión fallida: " . $conn->connect_error]));
+// Realizar la conexión a la base de datos
+if (!mysqli_real_connect($conn, $servername, $username, $password, $dbname, 3306, NULL, MYSQLI_CLIENT_SSL)) {
+    die(json_encode(['success' => false, 'error' => "Conexión fallida: " . mysqli_connect_error()]));
 }
+
+// Verificar la conexión
+if (mysqli_connect_errno()) {
+    die(json_encode(['success' => false, 'error' => "Conexión fallida: " . mysqli_connect_error()]));
+}
+
+echo json_encode(['success' => true, 'message' => "Conexión exitosa a la base de datos"]);
 ?>
