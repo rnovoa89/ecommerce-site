@@ -2,12 +2,10 @@
 header('Content-Type: application/json');
 
 // Datos de conexión a la base de datos
-hostname=;="tiendaenlinea-server.mysql.database.azure.com";
-port="3306";
-username="ushfdkwvxu";
-password="Tindaonline2024";
+$servername = "tiendaenlinea-server.mysql.database.azure.com";
+$username = "ushfdkwvxu";
+$password = "Tindaonline2024";
 $dbname = "tienda_online";
-ssl-mode="require";
 // Habilitar reportes de errores de MySQLi para depuración
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
