@@ -4,7 +4,6 @@ $servername = "tiendaenlinea-server.mysql.database.azure.com";
 $username = "ushfdkwvxu";
 $password = "Tindaonline2024";
 $dbname = "tienda_online";
-$ssl_cert_path = __DIR__ . "/SSL/DigiCertGlobalRootCA.crt.pem";  // Ruta completa al certificado
 
 // Habilitar reportes de errores de MySQLi para depuración
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -13,7 +12,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $conn = mysqli_init();
 
 // Verificar si la configuración SSL se establece correctamente
-if (!mysqli_ssl_set($conn, NULL, NULL, $ssl_cert_path, NULL, NULL)) {
+if (!mysqli_ssl_set($conn, NULL, NULL, __DIR__ . "/../SSL/DigiCertGlobalRootCA.crt.pem", NULL, NULL)) {
     die(json_encode(['success' => false, 'error' => "Falló la configuración SSL"]));
 }
 
