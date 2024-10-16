@@ -10,10 +10,12 @@ if (isset($data['nombre']) && isset($data['descripcion']) && isset($data['precio
     $imagen = $data['imagen'];
 
     // Datos de conexión a la base de datos
-    $servername = "tiendaenlinea-server.mysql.database.azure.com";
-    $username = "ushfdkwvxu";
-    $password = "Tindaonline2024";
-    $dbname = "tienda_online";
+hostname=;="tiendaenlinea-server.mysql.database.azure.com";
+port="3306";
+username="ushfdkwvxu";
+password="Tindaonline2024";
+$dbname = "tienda_online";
+ssl-mode="require";
     
     // Habilitar reportes de errores de MySQLi para depuración
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
