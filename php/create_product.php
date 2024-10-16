@@ -10,7 +10,7 @@ if (isset($data['nombre']) && isset($data['descripcion']) && isset($data['precio
     $imagen = $data['imagen'];
 
     // Conéctate a la base de datos
-    include 'conexion.php';
+    include conexion.php;
 
     // Inserta el producto en la base de datos
     $sql = "INSERT INTO productos (nombre, descripcion, precio, imagen) VALUES (?, ?, ?, ?)";
