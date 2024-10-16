@@ -1,10 +1,10 @@
 <?php
 // Conexión a la base de datos
-include conexion.php;
+include 'conexion.php';
 
 // Comprobar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+if (!$conn) {
+    die("Conexión fallida: " . mysqli_connect_error());
 }
 
 // Obtener los datos del POST
